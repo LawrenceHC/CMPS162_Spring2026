@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 5 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+// Lawrence Cresswell
+  
+//--------//
+// Events //
+//--------//
+console.log("Events");
+
+// 1. Change the link (the <a> tag) in the HTML body below such that a hello
+//    message is displayed on a click event.
+function sayHello() {
+  alert("Hello!");
+}
+
+//--------------//
+// Input Fields //
+//--------------//
+console.log("Input Fields");
+
+// 1. Change the background color to red for the input text field (the <input>
+//    tag) in the HTML body when obtaining the focus and change it back to
+//    white when the focus is lost.
+function focusRed(el) {
+  el.style.backgroundColor = "red";
+}
+
+// 2. Change the background color to the original input background color
+function loseFocus(el) {
+  el.style.backgroundColor = "white";
+}
+
+// 3. Change the text from the default font color to blue
+function changeTextColor(el) {
+  el.style.color = "blue";
+}
+
+//--------//
+// Images //
+//--------//
+console.log("Images");
+
+// 1. Add an image to the HTML body (use the <img> tag). Make it disappear when
+//    someone clicks on it.
+function hideImage(img) {
+  img.style.display = "none";
+}
+
+// 2. Mouse over an object having an existing image and by mousing over another image appears in its place
+function swapImage(img) {
+  img.src = "https://t3.ftcdn.net/jpg/01/21/66/48/360_F_121664898_uhL1FEjDa06Y0EZbHJvceNU20oN9L7j6.jpg/0000FF";
+}
+function restoreImage(img) {
+  img.src = "https://t3.ftcdn.net/jpg/01/21/66/48/360_F_121664898_uhL1FEjDa06Y0EZbHJvceNU20oN9L7j6.jpg";
+}
+
+//--------//
+// Styles //
+//--------//
+console.log("Styles");
+
+// 1. Use the style to increase the text "The Pirates will advance to the World Series in 2025" 
+// Use a paragraph style code and increase the text to 8 em
+
+// 2. Use the style to decrease the text "The Pirates will advance to the World Series in 2025" 
+// Use a paragraph style code and increase the text to 5 em
+  
+function swapColors() {
+  let d1 = document.getElementById("div1");
+  let d2 = document.getElementById("div2");
+  let temp = d1.style.backgroundColor;
+  d1.style.backgroundColor = d2.style.backgroundColor;
+  d2.style.backgroundColor = temp;
+}
+
+</script>
+</head>
+<body>
+  See console!<br><br>
+  <a href="#" onclick="sayHello()">Click here for a greeting!</a><br><br>
+  <input type="text" onfocus="focusRed(this)" onblur="loseFocus(this)" oninput="changeTextColor(this)"><br><br>
+  <p style="font-size:8em;">The Pirates will advance to the World Series in 2025</p>
+  <p style="font-size:5em;">The Pirates will advance to the World Series in 2025</p>
+  <img src="https://t3.ftcdn.net/jpg/01/21/66/48/360_F_121664898_uhL1FEjDa06Y0EZbHJvceNU20oN9L7j6.jpg" onclick="hideImage(this)" onmouseover="swapImage(this)" onmouseout="restoreImage(this)"><br><br>
+  <p>Hello World!</p>
+  <div id="div1"
+       style="background-color:yellow;"
+       onclick="swapColors();">
+    Hello
+  </div>
+  <div id="div2"
+       style="background-color:green;"
+       onclick="swapColors();">
+    World
+  </div>
+</body>
+</html>
