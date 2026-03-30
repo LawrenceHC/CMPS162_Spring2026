@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 6 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+//---------------------------//
+// The Document Object Model //
+//---------------------------//
+console.log("The Document Object Model");
+
+// 1. Complete the Fahrenheit to Celsius converter below. The following tasks
+//    remain: (1) on the blur event in the Fahrenheit input field call the
+//    fahrenheitToCelsius function, (2) on the blur event in the Celsius input
+//    field call the celsiusToFahrenheit function, (3) implement the
+//    fahrenheitToCelsius function that reads from the Fahrenheit input field,
+//    performs the conversion, and writes to the Celsius field, and
+//    (4) implement the celsiusToFahrenheit function that reads from the Celsius
+//    input field, performs the conversion, and writes to the Fahrenheit field.
+//    The conversion formulas are here: https://en.wikipedia.org/wiki/Fahrenheit
+//    An example is that 80 degrees Fahrenheit should be 26.7 degrees Celsius
+//    (and vice versa).
+
+function fahrenheitToCelsius() {
+  // implement your program here
+  // ...
+  let f = document.getElementById("fahrenheit").value;
+  let c = (f - 32) * 5/9;
+  document.getElementById("celsius").value = c.toFixed(1);
+}
+
+function celsiusToFahrenheit() {
+  // implement your program here
+  // ...
+  let c = document.getElementById("celsius").value;
+  let f = (c * 9/5) + 32;
+  document.getElementById("fahrenheit").value = f.toFixed(1);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("fahrenheit").addEventListener("blur", fahrenheitToCelsius);
+  document.getElementById("celsius").addEventListener("blur", celsiusToFahrenheit);
+});
+
+// 2. Write a function to count the number of DOM elements in the body.
+function countElements() {
+  return document.body.getElementsByTagName("*").length;
+}
+
+// 3. Write a function to count the number of text elements in the body.
+function countTextElements() {
+  let walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  let count = 0;
+  while (walker.nextNode()) {
+    if (walker.currentNode.nodeValue.trim() !== "") {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countElements());
+console.log(countTextElements());
+
+</script>
+</head>
+<body>
+  See console!<br><br>
+  <input type="text" id="fahrenheit"> - enter fahrenheit<br>
+  or<br>
+  <input type="text" id="celsius"> - enter celsius<br>
+</body>
+</html>
