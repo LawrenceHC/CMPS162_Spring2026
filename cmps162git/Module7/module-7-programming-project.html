@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 7 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+// Lawrence Cresswell
+  
+//-----------------//
+// Browser Version //
+//-----------------//
+console.log("Browser Version");
+
+// 1. Complete the implementation and show the current verstion of your browser
+console.log(navigator.userAgent);
+
+// 2. Paste the output that you receive from the first question
+// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+
+
+//-----------------//
+// Windows //
+//-----------------//
+console.log("Windows");
+
+let newWindow;
+
+// 1. Create a way to open a window with the height & width of 500 each
+function openWindow() {
+  newWindow = window.open("", "", "width=500,height=500");
+}
+
+// 2. Create a way to close a window
+function closeWindow() {
+  if (newWindow) {
+    newWindow.close();
+  }
+}
+
+// 3. Create a button to open a new window with preferences of a toolbar, location is true, no directories, no status
+//.   menubar, scrollbars, not resizable, height/width is 400
+function openCustomWindow() {
+  window.open("", "", "toolbar=yes,location=yes,directories=no,status=no,menubar=yes,scrollbars=yes,resizable=no,width=400,height=400");
+}
+
+
+//-----------------//
+// History URLS //
+//-----------------//
+console.log("History");
+  
+// 1. Create a function that provides a way to obtain the history of pages visited previously
+function showHistory() {
+  console.log("History length: " + history.length);
+}
+  
+
+// 2. Run in Live Server and copy the URL, and then visit www.yahoo.com, www.jeffreyjseaman.com, www.pkwinery.com, www.libertypolespirits.com, www.espn.com
+// Provide how many URLs you have in your history
+// 6
+
+  //-----------------//
+// Cookies //
+//-----------------//
+console.log("Cookies");
+  
+// 1. Create a way to identify if cookies are enabled
+console.log("Cookies enabled: " + navigator.cookieEnabled);
+  
+// 2. Create a way to set the cookie
+function setCookie() {
+  document.cookie = "username=Lawrence; path=/";
+}
+  
+// 3. Create a way to obtain the cookie and display it on the screen
+function getCookie() {
+  console.log(document.cookie);
+}
+
+</script>
+</head>
+<body>
+  See console!
+  <br><br>
+  <button onclick="openWindow()">Open 500x500 Window</button>
+  <button onclick="closeWindow()">Close Window</button>
+  <button onclick="openCustomWindow()">Open Custom Window</button>
+  <button onclick="showHistory()">Show History</button>
+  <button onclick="setCookie()">Set Cookie</button>
+  <button onclick="getCookie()">Get Cookie</button>
+</body>
+</html>
