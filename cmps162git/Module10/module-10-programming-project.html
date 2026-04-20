@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162: Module 10 Programming Project</title>
+<style>* { font-family: monospace; }</style>
+<script>
+
+console.log("Browser Version");
+
+var results = 12;
+
+try {
+  console.log(results);
+} catch (error) {
+  console.log('An error occured:', error.message);
+}
+
+// 2. Take the code produced in #1 and create a routine that will generate an error 
+//    provide that code here
+
+try {
+  console.log(notDefinedVariable);
+} catch (error) {
+  console.log('An error occured:', error.message);
+}
+
+// 3. Provide in words what the output of the error is here
+// ReferenceError: notDefinedVariable is not defined
+
+
+console.log("Finally");
+
+try {
+  console.log("Trying");
+  console.log(notDefinedVariable);
+} catch (error) {
+  console.log('An error occured:', error.message);
+} finally {
+  console.log('Finally blocked executed');
+}
+
+// 2. Take the code from #1 in Finally and take first part and ensure it's not produced
+//    as an error and create a way to perform a finally statement with the following output
+
+try {
+  console.log("Trying");
+} finally {
+  console.log('Finally blocked it, yay');
+}
+
+
+console.log("Throw");
+
+var number = "b";
+
+try {
+  if (isNaN(number)) {
+    throw new Error("Not a numeric value");
+  } else {
+    console.log("It is a numeric value");
+  }
+} catch (error) {
+  console.log(error.message);
+}
+
+</script>
+</head>
+<body>
+  See console!
+</body>
+</html>
