@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Favorite Media</title>
+<link rel="stylesheet" href="styles\styles.css">
+<link rel="stylesheet" href="styles/stylesContact.css">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="overlay"></div>
+<div id="home" class="view active">
+    <h1><u>My Favorite Media</u></h1>
+    <div class="subtitle">By Lawrence Cresswell</div>
+    <div class="home-options">
+
+    <div class="home-card" onclick="showView('shows')">
+        <img src="images/posters/shows.jpg">
+        <div class="home-title">Shows</div>
+    </div>
+
+    <div class="home-card" onclick="showView('movies')">
+        <img src="images/posters/movies.jpg">
+        <div class="home-title">Movies</div>
+    </div>
+
+    <div class="home-card" onclick="showView('games')">
+        <img src="images/posters/games.jpg">
+        <div class="home-title">Video Games</div>
+    </div>
+
+</div>
+</div>
+
+<div id="movies" class="view">
+    <button onclick="showView('home')">← Back</button>
+    <div id="movieList" class="list"></div>
+</div>
+
+<div id="games" class="view">
+    <button onclick="showView('home')">← Back</button>
+    <div id="gameList" class="list"></div>
+</div>
+
+<div id="shows" class="view">
+    <button onclick="showView('home')">← Back</button>
+    <div id="showList" class="list"></div>
+</div>
+
+<div style="margin-top: 40px;">
+    <button onclick="openAbout()">About</button>
+    <button onclick="openContact()">Contact</button>
+</div>
+
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <p>This was created to showcase my favorite movies and games!</p>
+        <button onclick="closeAbout()">Close</button>
+    </div>
+</div>
+
+<div id="contactModal" class="modal contact-modal">
+    <div class="modal-content">
+
+        <form id="contactForm" class="contact-form">
+            <h2>User Contact Form</h2>
+
+            <label>First Name</label>
+            <input type="text" id="firstName">
+
+            <label>Last Name</label>
+            <input type="text" id="lastName">
+
+            <label>City</label>
+            <input type="text" id="city">
+
+            <label>State</label>
+            <select id="state">
+                <option value="">Select State</option>
+                <option>PA</option>
+                <option>NY</option>
+                <option>CA</option>
+                <option>TX</option>
+                <option>FL</option>
+                <option>LA</option>
+            </select>
+
+            <label>Zip Code</label>
+            <input type="text" id="zip">
+
+            <button type="submit">Submit</button>
+
+            <div id="message"></div>
+        </form>
+
+        <button onclick="closeContact()">Close</button>
+
+    </div>
+</div>
+
+<script src="script\script.js"></script>
+</body>
+</html>
