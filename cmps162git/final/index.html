@@ -51,6 +51,7 @@
 <div style="margin-top: 40px;">
     <button onclick="openAbout()">About</button>
     <button onclick="openContact()">Contact</button>
+    <button onclick="openAdd()">Add Content</button>
 </div>
 
 <div id="aboutModal" class="modal">
@@ -95,6 +96,39 @@
         </form>
 
         <button onclick="closeContact()">Close</button>
+
+    </div>
+</div>
+
+<div id="addModal" class="modal contact-modal">
+    <div class="modal-content">
+
+        <form id="addForm" class="contact-form">
+            <h2>Add Content</h2>
+
+            <label>Type</label>
+            <select id="contentType">
+                <option value="">Select Type</option>
+                <option value="shows">Show</option>
+                <option value="movies">Movie</option>
+                <option value="games">Game</option>
+            </select>
+
+            <label>Name</label>
+            <input type="text" id="contentName">
+
+            <label>Genre</label>
+            <input type="text" id="contentGenre">
+
+            <label>Rating</label>
+            <input type="text" id="contentRating">
+
+            <button type="submit">Add</button>
+
+            <div id="addMessage"></div>
+        </form>
+
+        <button onclick="closeAdd()">Close</button>
 
     </div>
 </div>
