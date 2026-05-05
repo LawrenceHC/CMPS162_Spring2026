@@ -235,6 +235,69 @@ function startPreEndFade(audio) {
     }, 50);
 }
 
+const addModal = document.getElementById("addModal");
+
+function openAdd() {
+    aboutOpen = true;
+    addModal.style.display = "flex";
+    overlay.style.opacity = "1";
+}
+
+function closeAdd() {
+    aboutOpen = false;
+    addModal.style.display = "none";
+    overlay.style.opacity = "0";
+}
+
+const addForm = document.getElementById("addForm");
+
+if (addForm) {
+
+    addForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const type = document.getElementById("contentType").value;
+        const name = document.getElementById("contentName").value.trim();
+        const genre = document.getElementById("contentGenre").value.trim();
+        const rating = document.getElementById("contentRating").value.trim();
+        const message = document.getElementById("addMessage");
+
+        message.innerHTML = "";
+        if (!type || !name || !genre || !rating) {
+            message.className = "error";
+            message.innerHTML = "Please fill out all fields.";
+            return;
+        }
+
+        const newItem = {
+            title: name,
+            genre: genre,
+            rating: rating
+        };
+
+        if (type === "movies") {
+            movies.push(newItem);
+            document.getElementById("movieList").innerHTML =
+                movies.map(m => createCard(m, "movies")).join("");
+        }
+        else if (type === "games") {
+            games.push(newItem);
+            document.getElementById("gameList").innerHTML =
+                games.map(g => createCard(g, "games")).join("");
+        }
+        else if (type === "shows") {
+            shows.push(newItem);
+            document.getElementById("showList").innerHTML =
+                shows.map(s => createCard(s, "shows")).join("");
+        }
+
+        attachHoverEffects();
+        message.className = "success";
+        message.innerHTML = "Content added!";
+        addForm.reset();
+    });
+}
+
 function cleanupAudio(audio) {
     if (currentAudio === audio) {
         currentAudio = null;
